@@ -9,13 +9,13 @@ ARG BUILD_VERSION
 #ARG PLATFORM=x86_64
 #Labels
 LABEL org.label-schema.build-date=$BUILD_DATE
-LABEL org.label-schema.name="ess-hpecp-docker-inifiband-image/latest"
+LABEL org.label-schema.name="ess-hpecp-mofed-centos7.6-image/latest"
 LABEL org.label-schema.description="Mellanox drive enabled docker image"
 LABEL org.label-schema.url="https:/github.hpe.com"
-LABEL org.label-schema.vcs-url="https://github.hpe.com/chad-smykay/ess-hpecp-docker-inifiband-image"
+LABEL org.label-schema.vcs-url="https://github.hpe.com/chad-smykay/ess-hpecp-mofed-centos7.6-image"
 LABEL org.label-schema.vendor="HPE"
 LABEL org.label-schema.version=$BUILD_VERSION
-LABEL org.label-schema.docker.cmd="docker run -v ess-hpecp-docker-inifiband-image/latest -d ess-hpecp-docker-inifiband-image/latest#"
+LABEL org.label-schema.docker.cmd="docker run -v eess-hpecp-mofed-centos7.6-image/latest -d ess-hpecp-mofed-centos7.6-image/latest"
 # Set MOFED version, OS version and platform
 ENV MOFED_VERS=4.5-1.0.1.0
 ENV OS_VER=rhel7.6
