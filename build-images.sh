@@ -7,6 +7,6 @@ VERSION=2.0
 #fi
 docker build --build-arg BUILD_DATE=$DATE --build-arg BUILD_VERSION=$VERSION --no-cache=true --rm -f Dockerfile -t ess-hpecp-mofed-centos7.6-image:1.0 .
 docker tag ess-hpecp-mofed-centos7.6-image:$VERSION ess-hpecp-mofed-centos7.6-image:latest
-docker tag ess-hpecp-mofed-centos7.6-image csmykay/ess-hpecp-mofed-centos7.6-image:latest
+docker tag ess-hpecp-mofed-centos7.6-image:latest csmykay/ess-hpecp-mofed-centos7.6-image:latest
 docker login
-docker push csmykay/ess-hpecp-mofed-centos7.6-image:latest   
+docker push csmykay/ess-hpecp-mofed-centos7.6-image:latest
