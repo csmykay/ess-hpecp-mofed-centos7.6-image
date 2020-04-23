@@ -1,5 +1,6 @@
 #Pull from latest centos 7
-FROM centos:centos7.6.1810
+#FROM centos:centos7.6.1810
+FROM nvidia/cuda:10.2-base-centos7
 LABEL maintainer=chad.smykay@hpe.com
 # Runtime enviroment variables.
 ARG BUILD_DATE
