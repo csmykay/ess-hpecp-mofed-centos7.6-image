@@ -1,0 +1,1 @@
+docker run --runtime=nvidia -e NVIDIA_VISIBLE_DEVICES=all -e NVIDIA_DRIVER_CAPABILITIES=compute,utility --rm csmykay/ess-hpecp-mofed-centos7.6-image:latest nvidia-smi
