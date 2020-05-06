@@ -1,7 +1,7 @@
 #!/bin/bash
 #https://docs.docker.com/engine/reference/commandline/build/
 DATE=$(date +%Y-%m-%d_%H:%M:%S)
-VERSION=2.0
+VERSION=3.0
 #if [ -z $CURRENT ]; then
 #	CURRENT=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 #fi

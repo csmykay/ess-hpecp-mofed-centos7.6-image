@@ -4,7 +4,8 @@
 #418.87.01 
 #OFED driver I need
 #4.6-1.0.1.1
-FROM centos:centos7.6.1810
+#FROM centos:centos7.6.1810
+FROM csmykay/ess-hpecp-mofed-customer-image:latest
 #FROM nvidia/cuda:10.2-base-centos7
 LABEL maintainer=chad.smykay@hpe.com
 # Runtime enviroment variables.
