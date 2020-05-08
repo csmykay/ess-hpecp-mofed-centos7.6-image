@@ -31,3 +31,7 @@ docker run -it --runtime=nvidia --mount source=poc-host1,target=/app --device=/d
 docker run -it --runtime=nvidia --mount source=poc-host2,target=/app --device=/dev/infiniband/uverbs1 -e NVIDIA_VISIBLE_DEVICES=4,5,6,7 -e NVIDIA_DRIVER_CAPABILITIES=compute,utility --rm csmykay/ess-hpecp-mofed-centos7.6-image:latest
 
 If you want to change your mount path then change the directory /app to something else (e.g. --mount source=poc-host1,target=/app to --mount source=poc-host1,target=/target)
+
+Without mounts
+docker run -it --runtime=nvidia --device=/dev/infiniband/uverbs0 -e NVIDIA_VISIBLE_DEVICES=0,1,2,3 -e NVIDIA_DRIVER_CAPABILITIES=compute,utility --rm csmykay/ess-hpecp-mofed-centos7.6-image:latest
+docker run -it --runtime=nvidia --device=/dev/infiniband/uverbs1 -e NVIDIA_VISIBLE_DEVICES=4,5,6,7 -e NVIDIA_DRIVER_CAPABILITIES=compute,utility --rm csmykay/ess-hpecp-mofed-centos7.6-image:latest
