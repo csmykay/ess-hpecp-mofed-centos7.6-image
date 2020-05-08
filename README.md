@@ -35,3 +35,59 @@ If you want to change your mount path then change the directory /app to somethin
 Without mounts
 docker run -it --runtime=nvidia --device=/dev/infiniband/uverbs0 -e NVIDIA_VISIBLE_DEVICES=0,1,2,3 -e NVIDIA_DRIVER_CAPABILITIES=compute,utility --rm csmykay/ess-hpecp-mofed-centos7.6-image:latest
 docker run -it --runtime=nvidia --device=/dev/infiniband/uverbs1 -e NVIDIA_VISIBLE_DEVICES=4,5,6,7 -e NVIDIA_DRIVER_CAPABILITIES=compute,utility --rm csmykay/ess-hpecp-mofed-centos7.6-image:latest
+
+Tested on HPE Apollo 6500 with 8 GPU's and 2 Mellanox cards:
+
+[root@3a470b1b855c tmp]# nvidia-smi
+Fri May  8 16:00:32 2020
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 418.87.01    Driver Version: 418.87.01    CUDA Version: 10.2     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  Tesla P100-PCIE...  On   | 00000000:05:00.0 Off |                  Off |
+| N/A   28C    P0    28W / 250W |      0MiB / 16280MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+|   1  Tesla P100-PCIE...  On   | 00000000:08:00.0 Off |                  Off |
+| N/A   33C    P0    27W / 250W |      0MiB / 16280MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+|   2  Tesla P100-PCIE...  On   | 00000000:0D:00.0 Off |                  Off |
+| N/A   29C    P0    26W / 250W |      0MiB / 16280MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+|   3  Tesla P100-PCIE...  On   | 00000000:13:00.0 Off |                  Off |
+| N/A   27C    P0    26W / 250W |      0MiB / 16280MiB |      0%      Default |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                       GPU Memory |
+|  GPU       PID   Type   Process name                             Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+[root@3a470b1b855c tmp]# ./cuda-stream
+BabelStream
+Version: 3.3
+Implementation: CUDA
+Running kernels 100 times
+Precision: double
+Array size: 5319.0 MB (=5.3 GB)
+Total size: 15956.9 MB (=16.0 GB)
+Create Host Vectors
+Create CUDAStream
+Using CUDA device Tesla P100-PCIE-16GB
+Driver: 10020
+here 1
+here 2
+here 3
+here 4
+here 5
+Error: no kernel image is available for execution on the device
+[root@3a470b1b855c tmp]# ofed_info -s
+MLNX_OFED_LINUX-4.6-1.0.1.1:
+[root@3a470b1b855c tmp]# ib_write_bw -a -d mlx5_0 &
+[1] 73
+[root@3a470b1b855c tmp]#
+************************************
+* Waiting for client to connect... *
+************************************
