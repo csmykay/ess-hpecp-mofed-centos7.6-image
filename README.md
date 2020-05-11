@@ -24,8 +24,8 @@ We will have to build the image onsite to point to their repo's.
 9.  cd ess-hpecp-mofed-centos7.6-image
 10. bash build-images.sh
 11.  Configure a docker volume for persistent storage to use in the POC containers:  https://docs.docker.com/storage/volumes/
-    docker volume create poc-host1
-    docker volume create poc-host2
+    - docker volume create poc-host1
+    - docker volume create poc-host2
 12.  Start 2 containers, each with their own access to 4 GPU's each an 1 Mellanox card each
 
 docker run -it --runtime=nvidia --mount source=poc-host1,target=/app --device=/dev/infiniband/uverbs0 -e NVIDIA_VISIBLE_DEVICES=0,1,2,3 -e NVIDIA_DRIVER_CAPABILITIES=compute,utility --rm csmykay/ess-hpecp-mofed-centos7.6-image:latest
