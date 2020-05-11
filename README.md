@@ -1,4 +1,6 @@
 # ess-hpecp-mofed-centos7.6-image
+
+# Please note this docker image requires you to have a base host OS of CentOS to build.
 A base docker image to support Mellanox Infiniband cards within the container.  Update for CentOS 7.6.
 Future builds can then be used as a base off of this image.
 See:
@@ -10,7 +12,6 @@ This image currently does not have all of the custom customer packages due to th
 We need to verify your network setup before we can recommend how to setup the docker images best for your TCP/IP network access.  In general Docker uses "Bridge" mode which would could work for the POC.
 
 We will have to build the image onsite to point to their repo's.
-
 
 1.  Setup and load your Linux server as your normally do in your enviroment
 2.  Install docker for CentOS:  https://docs.docker.com/engine/install/centos/
